@@ -1,0 +1,24 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: team1-namespace
+  name: team1-role
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "services", "deployments"]
+    verbs: ["get", "list", "watch", "create", "update", "delete"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: team1-rolebinding
+  namespace: team1-namespace
+subjects:
+  - kind: User
+    name: team1-user
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: team1-role
+  apiGroup: rbac.authorization.k8s.io
