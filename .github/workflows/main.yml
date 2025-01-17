@@ -21,8 +21,8 @@ jobs:
 
     - name: Authenticate with ArgoCD
       env:
-        ARGOCD_SERVER: <your-argocd-server-url>
-        ARGOCD_TOKEN: ${{ secrets.ARGOCD_TOKEN }}
+        ARGOCD_SERVER: http://localhost:8888
+        ARGOCD_TOKEN: 3FKzyTIVXcjCOz6a
       run: |
         argocd login $ARGOCD_SERVER \
           --username admin \
