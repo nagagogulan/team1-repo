@@ -3,7 +3,7 @@ name: Team 1 ArgoCD Deployment
 on:
   push:
     branches:
-      - main
+      - main  # Trigger workflow on pushes to the main branch
 
 jobs:
   deploy:
@@ -21,8 +21,8 @@ jobs:
 
     - name: Authenticate with ArgoCD
       env:
-        ARGOCD_SERVER: http://localhost:8888
-        ARGOCD_TOKEN: 3FKzyTIVXcjCOz6a
+        ARGOCD_SERVER: localhost:8888  # Address of your ArgoCD server
+        ARGOCD_TOKEN: 3FKzyTIVXcjCOz6a  # Your ArgoCD authentication token
       run: |
         argocd login $ARGOCD_SERVER \
           --username admin \
